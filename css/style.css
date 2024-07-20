@@ -1,132 +1,155 @@
-* {
-    border: 1px solid red; /* all at once */
-    border-radius: 10px; /* rounded corners */
-}
-
-div {
-    position: relative; /* enable positioning */
-
-    top: 0;
-    right: 20%;
-    bottom: 0;
-    left: 20%;
-
-    inset: 10px; /* all 4 sides */
-    inset: 0 20% 0 20%; /* top right bottom left */
-    z-index: 100;
-}
-
 body {
-    background: blue;
-    color: yellow;
+    display: flex;
+    flex-direction: column;
     font-family: Arial, sans-serif;
-}
-
-h1 {
-    position: relative;
-    color: yellow;
-    background: darkblue;
-    padding: 10px;
-    text-align: center;
-}
-
-h2 {
-    color: darkblue;
-    background: yellow;
-    padding: 5px;
-}
-
-p {
-    color: darkblue;
-    background: lightblue;
-    padding: 5px;
+    margin: 0;
 }
 
 header {
-    position: relative;
-    background: darkblue;
-    padding: 20px;
+    background-color: #0080FF;
+    color: white;
     text-align: center;
-}
-
-nav {
-    background: rgb(255, 198, 45);
-    padding: 10px;
-    margin-bottom: 10px;
-}
-
-nav a {
-    color: darkblue;
-    text-decoration: none;
-    display: block;
-    padding: 5px;
-}
-
-nav a:hover {
-    background: yellow;
-}
-
-main {
-    background: hsl(212, 100%, 55%);
-    padding: 20px;
-    margin-bottom: 10px;
-}
-
-footer {
-    background: rgb(255, 198, 45);
-    text-align: center;
-    padding: 10px;
-    font-size: 12px;
+    padding: 1em;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    box-sizing: border-box;
+    z-index: 1000;
 }
 
 .container {
-    width: 80%;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-img {
-    display: block;
-    margin: 0 auto;
-    padding: 10px;
-    
-}
-
-.image-grid {
-    size: 100px;
     display: flex;
-    flex-wrap: wrap;
-    gap: 7px;
-    justify-content: center;
+    flex: 1;
+    margin-top: 10px;
 }
 
-#img1 {
-    filter: blur(5px);
+aside {
+    background-color: #F4F4F4;
+    padding: 1em;
+    width: 300px;
+    box-sizing: border-box;
+    position: fixed;
+    top: 120px; /* Adjust based on the header height */
+    left: 0;
+    bottom: 0;
+    overflow-y: auto;
 }
 
-#img2 {
-    filter: greyscale(80%);
+main {
+    flex: 1;
+    margin-left: 310px; /* Adjust based on the aside width and padding */
+    margin-top: 120px;
+    padding: 1em;
+    box-sizing: border-box;
 }
 
-#img3 {
-    filter: brightness(80%) contrast(250%);
+footer {
+    background-color: #0080FF;
+    color: white;
+    text-align: center;
+    padding: 1em;
 }
 
-#img4 {
-    filter: hue-rotate(50deg);;
+.bird-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1em;
 }
 
-#img5 {
-    filter: invert(80%);
+.bird-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 1em;
+    text-align: left; /* Ensure text alignment is left */
 }
 
-#img6 {
-    filter: invert() sepia() saturate(500%) hue-rotate(50deg);
+.bird-card img {
+    max-width: 100%;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1em;
+    max-width: 360px;
+    max-height: 230px;
+    object-fit: cover;
+}
+
+.bird-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.bird-info div {
+    margin-bottom: 0.5em;
+}
+
+.bird-info strong {
+    display: inline-block;
+    font-size: 1.1em;
+    width: 150px; /* Adjust based on your layout needs */
+    font-weight: bold;
+}
+
+.bird-info h2 {
+    display: inline; 
+    font-size: 1.05em; 
+    font-weight: normal;
+    margin: 0;
+}
+
+#filter {
+    margin-bottom: 2em;
 }
 
 
-.box {
-    background: lightblue;
-    padding: 10px;
-    margin-bottom: 10px;
+#color of the li
+#conservationStatus ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+#conservationStatus li {
+    padding: 0.5em;
+    font-size: 1em;
+}
+
+.status-not-threatened {
+    color: #1b9c39; /* Dark Green */
+}
+
+.status-naturally-uncommon {
+    color: #1ac480; /* Green */
+}
+
+.status-relict {
+    color: #40fe5d; /* Light Freen */
+}
+
+.status-recovering {
+    color: #aaff00; /* Yellow */
+}
+
+.status-declining {
+    color: #ffcc00; /* Orange */
+}
+
+.status-nationally-increasing {
+    color: #bc2e6bcf; /* Dark pink */
+}
+
+.status-nationally-vulnerable {
+    color: #9a2e0e; /* Deep Red */
+}
+
+.status-nationally-endangered {
+    color: #42403c; /* Light Black */
+}
+
+.status-nationally-critical {
+    color: #000000; /* Black */
+}
+
+.status-data-deficient {
+    color: #000000; /* Black */
 }

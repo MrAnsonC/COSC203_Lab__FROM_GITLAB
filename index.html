@@ -1,52 +1,104 @@
 <!DOCTYPE html>
 <html lang="en">
+
     <head>
         <meta charset="UTF-8">
-        <title>Polly's Travel Blog</title>
-        <link href="css/style.css" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Birds of Aotearoa</title>
+        <link rel="stylesheet" href="css/style.css">
     </head>
 
     <body>
         <header>
-            <h1>Polly's Travel Blog</h1>
+            <h1>Birds of Aotearoa</h1>
         </header>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="stories.html">Stories</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
+
+        <aside>
+            <div id="filter">
+                <h2>Filter Birds</h2>
+                <label for="search">Search</label>
+                <input type="text" id="search" placeholder="Enter the bird's family name">
+                <label for="status">Conservation Status</label>
+                <select id="status">
+                    <option value="all">All</option>
+                    <option value="Not Threatened">Not Threatened</option>
+                    <option value="Naturally Uncommon">Naturally Uncommon</option>
+                    <option value="Relict">Relict</option>
+                    <option value="Recovering">Recovering</option>
+                    <option value="Declining">Declining</option>
+                    <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+                    <option value="Nationally Increasing">Nationally Increasing</option>
+                    <option value="Nationally Endangered">Nationally Endangered</option>
+                    <option value="Nationally Critical">Nationally Critical</option>
+                    <option value="Data Deficient">Data Deficient</option>
+                </select>
+                <label for="sort">Sort by</label>
+                <select id="sort">
+                    <option value="lightest_to_heaviest">Lightest to Heaviest</option>
+                    <option value="heaviest_to_lightest">Heaviest to Lightest</option>
+                </select>
+                <button id="filterResults">FILTER RESULTS</button>
+            </div>
+            <div id="conservationStatus">
+                <h2>Conservation Status</h2>
+                <ul>
+                    <li class="status-not-threatened">Not Threatened</li>
+                    <li class="status-naturally-uncommon">Naturally Uncommon</li>
+                    <li class="status-relict">Relict</li>
+                    <li class="status-recovering">Recovering</li>
+                    <li class="status-declining">Declining</li>
+                    <li class="status-nationally-vulnerable">Nationally Vulnerable</li>
+                    <li class="status-nationally-increasing">Nationally Increasing</li>
+                    <li class="status-nationally-endangered">Nationally Endangered</li>
+                    <li class="status-nationally-critical">Nationally Critical</li>
+                    <li class="status-data-deficient">Data Deficient</li>
+                </ul>
+            </div>
+        </aside>
+        
         <main>
-            <section class="image-grid">
-                <figure>
-                    <img id="img1" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>blur(5px)</figcaption>
-                </figure>   
-                <figure>
-                    <img id="img2" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>greyscale(80%)</figcaption>
-                </figure>
-                <figure>
-                    <img id="img3" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>brightness(80%) contrast(250%)</figcaption>
-                </figure>
-                <figure>
-                    <img id="img4" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>hue-rotate(50deg);</figcaption>
-                </figure>
-                <figure>
-                    <img id="img5" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>hue-rotate(50deg);</figcaption>
-                </figure>
-                <figure>
-                    <img id="img6" src="image/polly.jpg" alt="Photo of Polly">
-                    <figcaption>hue-rotate(50deg);</figcaption>
-                </figure>
-            </section>
+            <div id="birdCards" class="bird-cards">
+                <!-- Bird cards will be generated here by JavaScript -->
+            </div>
         </main>
-        <footer>
-            <p>© Copyright 2024 by Polly. No rights reversed.</p>
-        </footer>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                fetch('data/nzbird.json')
+                    .then(response => response.json())
+                    .then(birdData => {
+                        const birdCardsContainer = document.getElementById('birdCards');
+                        console.log('Bird data loaded:', birdData);
+    
+                        birdData.forEach(bird => {
+                            const card = document.createElement('div');
+                            card.classList.add('bird-card');
+    
+                            card.innerHTML = `
+                            <img src="${bird.photo.source}" alt="${bird.primary_name}">
+                                <h1>${bird.primary_name}</h1>
+                                <div class="bird-info">
+                                <div><strong>Scientific name:</strong> <h2>${bird.scientific_name}</h2></div>
+                                <div><strong>Family:</strong> <h2>${bird.family}</h2></div>
+                                <div><strong>Order:</strong> <h2>${bird.order}</h2></div>
+                                <div><strong>Status:</strong> <h2>${bird.status}</h2></div>
+                                <div><strong>Length:</strong> <h2>${bird.size.length.value} ${bird.size.length.units}</h2></div>
+                                <div><strong>Weight:</strong> <h2>${bird.size.weight.value} ${bird.size.weight.units}</h2></div>
+                                <div><strong>Photo by:</strong> <h2>${bird.photo.credit}</h2></div>
+                            </div>
+                        `;
+    
+                            birdCardsContainer.appendChild(card);
+                        });
+                    })
+                    .catch(error => {
+                        console.error('Error loading bird data:', error); // Debugging log
+                    });
+            });
+        </script>
     </body>
+
+    <footer>
+        <p>Data licensed from <a href="https://www.doc.govt.nz/">Birds New Zealand</a> for educational use within the University of Otago.</p>
+    </footer>
+    
 </html>
