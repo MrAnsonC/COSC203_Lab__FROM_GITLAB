@@ -9,7 +9,7 @@ header {
     background-color: #0080FF;
     color: white;
     text-align: center;
-    padding: 1em;
+    padding: 0.2em;
     position: fixed;
     top: 0;
     left: 0;
@@ -114,42 +114,46 @@ footer {
     font-size: 1em;
 }
 
-.status-not-threatened {
+#conservationStatus li:nth-of-type(1) {
+    color: #28a745; /* Green */
+}
+
+#conservationStatus li:nth-of-type(2) {
     color: #1b9c39; /* Dark Green */
 }
 
-.status-naturally-uncommon {
+#conservationStatus li:nth-of-type(3) {
     color: #1ac480; /* Green */
 }
 
-.status-relict {
+#conservationStatus li:nth-of-type(4) {
     color: #40fe5d; /* Light Freen */
 }
 
-.status-recovering {
+#conservationStatus li:nth-of-type(5) {
     color: #aaff00; /* Yellow */
 }
 
-.status-declining {
+#conservationStatus li:nth-of-type(6) {
     color: #ffcc00; /* Orange */
 }
 
-.status-nationally-increasing {
+#conservationStatus li:nth-of-type(7) {
     color: #bc2e6bcf; /* Dark pink */
 }
 
-.status-nationally-vulnerable {
+#conservationStatus li:nth-of-type(8) {
     color: #9a2e0e; /* Deep Red */
 }
 
-.status-nationally-endangered {
+#conservationStatus li:nth-of-type(9) {
     color: #42403c; /* Light Black */
 }
 
-.status-nationally-critical {
+#conservationStatus li:nth-of-type(10) {
     color: #000000; /* Black */
 }
 
-.status-data-deficient {
+#conservationStatus li:nth-of-type(11) {
     color: #000000; /* Black */
 }
