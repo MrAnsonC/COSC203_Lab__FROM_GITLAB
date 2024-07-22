@@ -15,7 +15,7 @@ header {
     left: 0;
     width: 100%;
     box-sizing: border-box;
-    z-index: 1000;
+    z-index: 1000;  
 }
 
 .container {
@@ -30,7 +30,7 @@ aside {
     width: 300px;
     box-sizing: border-box;
     position: fixed;
-    top: 120px; /* Adjust based on the header height */
+    top: 120px; 
     left: 0;
     bottom: 0;
     overflow-y: auto;
@@ -38,7 +38,7 @@ aside {
 
 main {
     flex: 1;
-    margin-left: 310px; /* Adjust based on the aside width and padding */
+    margin-left: 310px; 
     margin-top: 120px;
     padding: 1em;
     box-sizing: border-box;
@@ -62,7 +62,7 @@ footer {
     border: 1px solid #ddd;
     border-radius: 4px;
     padding: 1em;
-    text-align: left; /* Ensure text alignment is left */
+    text-align: left; 
 }
 
 .bird-card img {
@@ -86,7 +86,7 @@ footer {
 .bird-info strong {
     display: inline-block;
     font-size: 1.1em;
-    width: 150px; /* Adjust based on your layout needs */
+    width: 150px;   
     font-weight: bold;
 }
 

@@ -80,15 +80,15 @@
                             card.classList.add('bird-card');
     
                             card.innerHTML = `
-                            <img src="${bird.photo.source}" alt="${bird.primary_name}">
-                                <h1>${bird.primary_name}</h1>
+                            <img src="${bird.photo.source}" alt="${bird.common_name}">
+                                <h1>${bird.common_name}</h1>
                                 <div class="bird-info">
                                 <div><strong>Scientific name:</strong> <h2>${bird.scientific_name}</h2></div>
                                 <div><strong>Family:</strong> <h2>${bird.family}</h2></div>
                                 <div><strong>Order:</strong> <h2>${bird.order}</h2></div>
                                 <div><strong>Status:</strong> <h2>${bird.status}</h2></div>
-                                <div><strong>Length:</strong> <h2>${bird.size.length.value} ${bird.size.length.units}</h2></div>
-                                <div><strong>Weight:</strong> <h2>${bird.size.weight.value} ${bird.size.weight.units}</h2></div>
+                                <div><strong>Length:</strong> <h2>${bird.length}</h2></div>
+                                <div><strong>Weight:</strong> <h2>${bird.weight}</h2></div>
                                 <div><strong>Photo by:</strong> <h2>${bird.photo.credit}</h2></div>
                             </div>
                         `;
