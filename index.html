@@ -1,110 +1,64 @@
 <!DOCTYPE html>
 <html lang="en">
-
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Birds of Aotearoa</title>
-        <link rel="stylesheet" href="css/style.css">
-    </head>
-
-    <body>
-        <header>
-            <h1>Birds of Aotearoa</h1>
-        </header>
-
-        <aside>
-            <div id="filter">
-                <h2>Filter Birds</h2>
-                <div class="form-group">
-                    <label for="search">Search</label>
-                    <input type="text" id="search" placeholder="Enter the bird's family name">
-                </div>
-                <div class="form-group">
-                    <label for="status">Conservation Status</label>
-                    <select id="status">
-                        <option value="all">All</option>
-                        <option value="Not Threatened">Not Threatened</option>
-                        <option value="Naturally Uncommon">Naturally Uncommon</option>
-                        <option value="Relict">Relict</option>
-                        <option value="Recovering">Recovering</option>
-                        <option value="Declining">Declining</option>
-                        <option value="Nationally Vulnerable">Nationally Vulnerable</option>
-                        <option value="Nationally Increasing">Nationally Increasing</option>
-                        <option value="Nationally Endangered">Nationally Endangered</option>
-                        <option value="Nationally Critical">Nationally Critical</option>
-                        <option value="Data Deficient">Data Deficient</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="sort">Sort by</label>
-                    <select id="sort">
-                        <option value="lightest_to_heaviest">Lightest to Heaviest</option>
-                        <option value="heaviest_to_lightest">Heaviest to Lightest</option>
-                    </select>
-                </div>
-                <button id="filterResults">FILTER RESULTS</button>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="page-title">Birds of Aotearoa</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header id="headering">
+        <button id="hamburger" class="hamburger">&#9776;</button>
+        <h1 id="main-title">Birds of Aotearoa</h1>
+    </header>
+    <aside id="filter">
+        <button id="closeBtn" class="close-btn">Close</button>
+        <div>
+            <h2 id="find-birds-title">Find birds</h2>
+            <div class="form-group">
+                <label for="search" id="search-label">Search</label>
+                <input type="text" id="search" placeholder="Enter bird's name">
             </div>
-            <div id="conservationStatus">
-                <h2>Conservation Status</h2>
-                <ul>
-                    <li>Not Threatened</li>
-                    <li>Naturally Uncommon</li>
-                    <li>Relict</li>
-                    <li>Recovering</li>
-                    <li>Declining</li>
-                    <li>Nationally Vulnerable</li>
-                    <li>Nationally Increasing</li>
-                    <li>Nationally Endangered</li>
-                    <li>Nationally Critical</li>
-                    <li>Data Deficient</li>
-                </ul>
+            <div class="form-group">
+                <label for="state" id="status-label">Status</label>
+                <select id="state">
+                    <option value="All">All</option>
+                    <option value="Not Threatened">Not Threatened</option>
+                    <option value="Naturally Uncommon">Naturally Uncommon</option>
+                    <option value="Relict">Relict</option>
+                    <option value="Recovering">Recovering</option>
+                    <option value="Declining">Declining</option>
+                    <option value="Nationally Increasing">Nationally Increasing</option>
+                    <option value="Nationally Vulnerable">Nationally Vulnerable</option>
+                    <option value="Nationally Endangered">Nationally Endangered</option>
+                    <option value="Nationally Critical">Nationally Critical</option>
+                    <option value="Extinct">Extinct</option>
+                    <option value="Data Deficient">Data Deficient</option>
+                </select>
             </div>
-        </aside>
-        
-        <main>
-            <div id="birdCards" class="bird-cards">
-                <!-- Bird cards will be generated here by JavaScript -->
+            <button id="filterResults">Find birds</button>
+            <button id="resetFilters">Reset</button>
+            <div class="form-group">
+                <label for="language" id="language-label">Language</label>
+                <select id="language">
+                    <option value="English">English</option>
+                    <option value="MĀORI">MĀORI</option>
+                    <option value="Simple_Chinese">简体中文</option>
+                    <option value="Traditional_Chinese">繁體中文</option>
+                </select>
             </div>
-        </main>
-        <script>
-            document.addEventListener('DOMContentLoaded', () => {
-                fetch('data/nzbird.json')
-                    .then(response => response.json())
-                    .then(birdData => {
-                        const birdCardsContainer = document.getElementById('birdCards');
-                        console.log('Bird data loaded:', birdData);
-    
-                        birdData.forEach(bird => {
-                            const card = document.createElement('div');
-                            card.classList.add('bird-card');
-    
-                            card.innerHTML = `
-                            <img src="${bird.photo.source}" alt="${bird.common_name}">
-                                <h1>${bird.common_name}</h1>
-                                <div class="bird-info">
-                                <div><strong>Scientific name:</strong> <h2>${bird.scientific_name}</h2></div>
-                                <div><strong>Family:</strong> <h2>${bird.family}</h2></div>
-                                <div><strong>Order:</strong> <h2>${bird.order}</h2></div>
-                                <div><strong>Status:</strong> <h2>${bird.status}</h2></div>
-                                <div><strong>Length:</strong> <h2>${bird.length}</h2></div>
-                                <div><strong>Weight:</strong> <h2>${bird.weight}</h2></div>
-                                <div><strong>Photo by:</strong> <h2>${bird.photo.credit}</h2></div>
-                            </div>
-                        `;
-    
-                            birdCardsContainer.appendChild(card);
-                        });
-                    })
-                    .catch(error => {
-                        console.error('Error loading bird data:', error); // Debugging log
-                    });
-            });
-        </script>
-    </body>
-
+        </div>
+    </aside>
+    <main>
+        <div id="bird_card" class="bird-cards"></div>
+    </main>
     <footer>
-        <p>Data licensed from <a href="https://www.doc.govt.nz/">Birds New Zealand</a> for educational use within the University of Otago. Ho San COSC203 Ass</p>
+        <p id="footer-text">
+            Data licensed from 
+            <a id="footer-link" href="https://www.doc.govt.nz/">Birds New Zealand</a> 
+            for educational use within the University of Otago. Ho San COSC203 Ass
+        </p>    
     </footer>
-    
+    <script src="js/script.js"></script>
+</body>
 </html>
