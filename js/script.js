@@ -14,16 +14,26 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('filterResults').addEventListener('click', () => {
         const searchValue = document.getElementById('search').value.toLowerCase();
         const stateValue = document.getElementById('state').value;
-
+        console.log('Search value:', searchValue); // Debugging log
+        console.log('State value:', stateValue); // Debugging log
+    
         let filteredbirds = birds.filter(bird => {
-            const matchesSearch = bird.common_name.toLowerCase().includes(searchValue) || searchValue === "";
+            const matchesSearch = bird.common_name.toLowerCase().includes(searchValue) || 
+                    bird.original_name.toLowerCase().includes(searchValue) || 
+                    bird.scientific_name.toLowerCase().includes(searchValue) || 
+                    //bird.other_name.toLowerCase().includes(searchValue) || 
+                    bird.order.toLowerCase().includes(searchValue) || 
+                    bird.family.toLowerCase().includes(searchValue) || 
+                    searchValue === "";
             const matchesState = stateValue === "All" || bird.status === stateValue;
             return matchesSearch && matchesState;
         });
 
+    
         console.log('Filtered birds:', filteredbirds); // Debugging log
         displaybirds(filteredbirds, currentPage); // Display filtered birds
     });
+        
 
     document.getElementById('resetFilters').addEventListener('click', () => {
         document.getElementById('search').value = '';
