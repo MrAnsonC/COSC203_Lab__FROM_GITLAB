@@ -111,6 +111,19 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('status-label').textContent = translations.statusLabel;
         document.getElementById('weight-label').textContent = translations.weightLabel;
         document.getElementById('conservation-status-title').textContent = translations.conservationStatus;
+
+        //state
+        document.getElementById('not_threatened').textContent = translations.notThreatened;
+        document.getElementById('naturally_uncommon').textContent = translations.naturallyUncommon;
+        document.getElementById('relict').textContent = translations.relict;
+        document.getElementById('recovering').textContent = translations.recovering;
+        document.getElementById('declining').textContent = translations.declining;
+        document.getElementById('nationally_increasing').textContent = translations.nationallyIncreasing;
+        document.getElementById('nationally_vulnerable').textContent = translations.nationallyVulnerable;
+        document.getElementById('nationally_endangered').textContent = translations.nationallyEndangered;
+        document.getElementById('nationally_critical').textContent = translations.nationallyCritical;
+        document.getElementById('extinct').textContent = translations.extinct;
+        document.getElementById('data_deficien').textContent = translations.dataDeficient;
     
         const statusOptions = document.getElementById('status').options;
         statusOptions[0].textContent = translations.all;
