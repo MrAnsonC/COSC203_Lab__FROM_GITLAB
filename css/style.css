@@ -33,7 +33,7 @@ aside {
     width: 250px;
     height: 100%;
     background-color: #f4f4f4;
-    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 6px 0 5px rgba(0, 0, 0, 0.2);
     padding: 20px;
     z-index: 1000;
     overflow-y: auto;
@@ -55,6 +55,32 @@ aside {
     background-color: #8c00ff;
 }
 
+.conservation-status h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.conservation-status ul {
+    list-style: none;
+    padding: 0;
+}
+
+.conservation-status li {
+    margin-bottom: 5px;
+    line-height: 20px;
+}
+
+.status-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+
 .close-btn {
     font-size: 24px;
     background: none;
@@ -64,10 +90,6 @@ aside {
     position: absolute;
     top: 20px;
     right: 20px;
-}
-
-aside h2 {
-    margin-top: 60px;
 }
 
 .form-group {
@@ -254,6 +276,10 @@ footer {
         transform: translateX(-100%);
         transition: transform 0.3s ease;
     }
+
+    aside h2 {
+        margin-top: 60px;
+    }    
 
     main {
         margin-left: 0;

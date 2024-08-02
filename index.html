@@ -20,8 +20,8 @@
                 <input type="text" id="search" placeholder="Enter bird's name">
             </div>
             <div class="form-group">
-                <label for="state" id="status-label">Status</label>
-                <select id="state">
+                <label for="status" id="status-label">Status</label>
+                <select id="status">
                     <option value="All">All</option>
                     <option value="Not Threatened">Not Threatened</option>
                     <option value="Naturally Uncommon">Naturally Uncommon</option>
@@ -36,8 +36,36 @@
                     <option value="Data Deficient">Data Deficient</option>
                 </select>
             </div>
+            <div class="form-group">
+                <label for="weight" id="weight-label">Sort by</label>
+                <select id="weight">
+                    <option value="ligh_to_heav">Lightest to heaviest</option>
+                    <option value="heav_to_ligh">Heaviest to lightest</option>
+                </select>
+            </div>
             <button id="filterResults">Find birds</button>
             <button id="resetFilters">Reset</button>
+            <div id="resultsCount" class="results-count">0 results found</div>
+
+            <div class="conservation-status">
+                <h2 id="conservation-status-title">Conservation Status</h2>
+                <ul>
+                    <li><span class="status-indicator" style="background-color: #02a028;"></span>Not Threatened</li>
+                    <li><span class="status-indicator" style="background-color: #649a31;"></span>Naturally Uncommon</li>
+                    <li><span class="status-indicator" style="background-color: #99cb68;"></span>Relict</li>
+                    <li><span class="status-indicator" style="background-color: #fecc33;"></span>Recovering</li>
+                    <li><span class="status-indicator" style="background-color: #fe9a01;"></span>Declining</li>
+                    <li><span class="status-indicator" style="background-color: #c26967;"></span>Nationally Increasing</li>
+                    <li><span class="status-indicator" style="background-color: #9b0000;"></span>Nationally Vulnerable</li>
+                    <li><span class="status-indicator" style="background-color: #660032;"></span>Nationally Endangered</li>
+                    <li><span class="status-indicator" style="background-color: #320033;"></span>Nationally Critical</li>
+                    <li><span class="status-indicator" style="background-color: black;"></span>Extinct</li>
+                    <li><span class="status-indicator" style="background-color: black;"></span>Data Deficient</li>
+                </ul>
+                <h5 id="aside-text">Conservation status from <a id="aside-link" href="https://www.doc.govt.nz/nature/conservation-status/">DOC website</a></h5>
+            </div>
+            
+
             <div class="form-group">
                 <label for="language" id="language-label">🌐Website Language</label>
                 <select id="language">

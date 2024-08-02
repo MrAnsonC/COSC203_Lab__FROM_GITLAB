@@ -2,19 +2,22 @@ document.addEventListener('DOMContentLoaded', () => {
     let birds = [];
     let currentPage = 1;
     let translations = {};
+    let resultCount = 0;
 
     fetch('data/nzbird.json')
         .then(response => response.json())
         .then(birdData => {
-            birds = shuffleArray(birdData); // Randomize birds
+            birds = shuffleArray(birdData); 
             displaybirds(birds, currentPage);
+            updateResultsCount(birds.length);
         })
         .catch(error => console.error('Error loading bird data:', error));
 
     document.getElementById('filterResults').addEventListener('click', () => {
         const searchValue = document.getElementById('search').value.toLowerCase();
-        const stateValue = document.getElementById('state').value;
-    
+        const stateValue = document.getElementById('status').value;
+        const weightSortValue = document.getElementById('weight').value;
+
         let filteredbirds = birds.filter(bird => {
             const searchLower = searchValue.toLowerCase();
 
@@ -30,14 +33,39 @@ document.addEventListener('DOMContentLoaded', () => {
             return matchesSearch && matchesState;
         });
 
-        displaybirds(filteredbirds, currentPage); // Display filtered birds
+        // Sort birds by weight
+        filteredbirds.sort((a, b) => {
+            const weightA = parseWeight(a.weight);
+            const weightB = parseWeight(b.weight);
+
+            if (weightSortValue === 'ligh_to_heav') {
+                return weightA - weightB;
+            } else {
+                return weightB - weightA;
+            }
+        });
+
+        displaybirds(filteredbirds, currentPage);
+        updateResultsCount(filteredbirds.length);
     });
 
     document.getElementById('resetFilters').addEventListener('click', () => {
         document.getElementById('search').value = '';
-        document.getElementById('state').value = 'All';
+        document.getElementById('status').value = 'All';
+        document.getElementById('weight').value = 'ligh_to_heav'; 
         displaybirds(birds, currentPage); 
     });
+
+    function updateResultsCount(count) {
+        const resultsCountElement = document.getElementById('resultsCount');
+        let resultsText;
+        if (count === 0) {
+            resultsText = translations.resultsCount;
+        } else {
+            resultsText = translations.resultsCountPlural.replace("{count}", count);
+        }
+        resultsCountElement.textContent = resultsText;
+    }
 
     const hamburger = document.getElementById('hamburger');
     const filter = document.getElementById('filter');
@@ -81,8 +109,10 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('search-label').textContent = translations.searchLabel;
         document.getElementById('search').placeholder = translations.searchPlaceholder;
         document.getElementById('status-label').textContent = translations.statusLabel;
+        document.getElementById('weight-label').textContent = translations.weightLabel;
+        document.getElementById('conservation-status-title').textContent = translations.conservationStatus;
     
-        const statusOptions = document.getElementById('state').options;
+        const statusOptions = document.getElementById('status').options;
         statusOptions[0].textContent = translations.all;
         statusOptions[1].textContent = translations.notThreatened;
         statusOptions[2].textContent = translations.naturallyUncommon;
@@ -96,10 +126,34 @@ document.addEventListener('DOMContentLoaded', () => {
         statusOptions[10].textContent = translations.extinct;
         statusOptions[11].textContent = translations.dataDeficient;
 
+        const weightOptions = document.getElementById('weight').options;
+        weightOptions[0].textContent = translations.ligh_to_heav;
+        weightOptions[1].textContent = translations.heav_to_ligh;
+        
         document.getElementById('filterResults').textContent = translations.findBirdsButton;
         document.getElementById('resetFilters').textContent = translations.resetFiltersButton;
+        document.getElementById('resultsCount').textContent = translations.resultsCount;
         document.getElementById('language-label').textContent = translations.languageLabel;
+        document.getElementById('aside-text').innerHTML = translations.asideText;
         document.getElementById('footer-text').innerHTML = translations.footerText;
+
+        updateResultsCount(resultCount);
+    }
+
+    function parseWeight(weightStr) {
+        if (!weightStr) return 0; 
+    
+        const matches = weightStr.match(/(\d+\.?\d*)\s*(g|kg)?/gi);
+        if (matches) {
+            const weightsInGrams = matches.map(match => {
+                const [, value, unit] = match.match(/(\d+\.?\d*)\s*(g|kg)?/i);
+                const weight = parseFloat(value);
+                return unit && unit.toLowerCase() === 'kg' ? weight * 1000 : weight;
+            });
+    
+            return Math.max(...weightsInGrams); 
+        }
+        return 0; 
     }
 
     function displaybirds(birds) {
