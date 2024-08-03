@@ -30,7 +30,7 @@ aside {
     position: fixed;
     top: 0;
     left: 0;
-    width: 275px;
+    width: 280px;
     height: 100%;
     background-color: #f4f4f4;
     box-shadow: 6px 0 5px rgba(0, 0, 0, 0.2);
@@ -127,7 +127,7 @@ aside {
 main {
     flex: 1;
     padding: 20px;
-    margin-left: 250px; /* Space for aside */
+    margin-left: 310px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -159,16 +159,61 @@ main {
 
 .bird-card {
     background-color: #fff;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    padding: 15px;
+    border: 10px solid transparent;
+    border-radius: 35px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     display: grid;
     align-items: flex;
     width: 100%;
-    max-width: 550px;
+    max-width: 370px;
     box-sizing: border-box;
     transition: transform 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.status-not-threatened {
+    border-color: #02a028;
+}
+
+.status-naturally-uncommon {
+    border-color: #649a31;
+}
+
+.status-relict {
+    border-color: #99cb68;
+}
+
+.status-recovering {
+    border-color: #fecc33;
+}
+
+.status-declining {
+    border-color: #fe9a01;
+}
+
+.status-nationally-increasing {
+    border-color: #c26967;
+}
+
+.status-nationally-vulnerable {
+    border-color: #9b0000;
+}
+
+.status-nationally-endangered {
+    border-color: #660032;
+}
+
+.status-nationally-critical {
+    border-color: #320033;
+}
+
+.status-extinct {
+    border-color: black;
+}
+
+.status-data-deficient {
+    border-color: black;
 }
 
 .bird-card:hover {
@@ -176,10 +221,9 @@ main {
 }
 
 .bird-card img {
-    max-width: 95%;
-    max-height: 95%;
+    width: 370px;
+    height: 250px;
     border-radius: 25px;
-    margin-right: 15px;
 }
 
 .bird-info {
@@ -190,13 +234,14 @@ main {
 .bird-info h1 {
     font-size: 1.5em;
     margin: 0 0 10px;
-    text-align: left;
+    text-align: center;
 }
 
 .bird-info div {
     flex-direction: column;
     align-items: center;
     margin-bottom: 5px;
+    margin: 15px;
 }
 
 .bird-info h2 {

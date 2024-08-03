@@ -104,6 +104,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function applyTranslations(translations) {
         document.getElementById('page-title').textContent = translations.title;
+        document.getElementById('closeBtn').textContent = translations.close;
         document.getElementById('main-title').textContent = translations.title;
         document.getElementById('find-birds-title').textContent = translations.findBirds;
         document.getElementById('search-label').textContent = translations.searchLabel;
@@ -123,7 +124,7 @@ document.addEventListener('DOMContentLoaded', () => {
         document.getElementById('nationally_endangered').textContent = translations.nationallyEndangered;
         document.getElementById('nationally_critical').textContent = translations.nationallyCritical;
         document.getElementById('extinct').textContent = translations.extinct;
-        document.getElementById('data_deficien').textContent = translations.dataDeficient;
+        document.getElementById('data_deficient').textContent = translations.dataDeficient;
     
         const statusOptions = document.getElementById('status').options;
         statusOptions[0].textContent = translations.all;
@@ -176,6 +177,9 @@ document.addEventListener('DOMContentLoaded', () => {
         birds.forEach(bird => {
             const card = document.createElement('div');
             card.classList.add('bird-card');
+
+            const statusClass = `status-${bird.status.toLowerCase().replace(/\s+/g, '-')}`;
+            card.classList.add(statusClass);
 
             const image = bird.photo ? bird.photo.source : 'data/images/unknown.jpg';
             const common_name = bird.common_name || 'unknown';

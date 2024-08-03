@@ -1,6 +1,7 @@
 {
     "English": {
         "title": "Birds of Aotearoa",
+        "close": "Close",
         "findBirds": "Find birds",
         "searchLabel": "Search",
         "searchPlaceholder": "Enter bird's name",
@@ -37,6 +38,7 @@
     },
     "MĀORI": {
         "title": "Ngā Manu o Aotearoa",
+        "close": "Katia",
         "findBirds": "Rapua ngā manu",
         "searchLabel": "Rapu",
         "searchPlaceholder": "Tāurua te ingoa o te manu",
@@ -73,6 +75,7 @@
     },
     "Simple_Chinese": {
         "title": "新西兰的鸟类",
+        "close": "关闭",
         "findBirds": "寻找鸟类",
         "searchLabel": "搜索",
         "searchPlaceholder": "输入鸟的名字",
@@ -109,6 +112,7 @@
     },
     "Traditional_Chinese": {
         "title": "紐西蘭的鳥類",
+        "close": "關閉",
         "findBirds": "尋找鳥類",
         "searchLabel": "搜索",
         "searchPlaceholder": "輸入鳥的名字",
