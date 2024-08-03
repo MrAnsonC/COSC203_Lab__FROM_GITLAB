@@ -67,10 +67,18 @@ document.addEventListener('DOMContentLoaded', () => {
         resultsCountElement.textContent = resultsText;
     }
 
+    const themeToggleButton = document.getElementById('themeToggle');
     const hamburger = document.getElementById('hamburger');
     const filter = document.getElementById('filter');
     const closeBtn = document.getElementById('closeBtn');
     const languageSelect = document.getElementById('language');
+
+    // Check saved theme from localStorage
+    const savedTheme = localStorage.getItem('theme') || 'dark';
+    document.body.classList.add(`${savedTheme}-theme`);
+    document.querySelector('header').classList.add(`${savedTheme}-theme`);
+    document.querySelector('aside').classList.add(`${savedTheme}-theme`);
+    document.querySelectorAll('button').forEach(button => button.classList.add(`${savedTheme}-theme`))
 
     hamburger.addEventListener('click', () => {
         filter.style.transform = 'translateX(0)';
@@ -228,4 +236,21 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         return array;
     }
+
+    themeToggle.checked = savedTheme === 'dark';
+    themeToggle.addEventListener('change', () => {
+        if (themeToggle.checked) {
+            document.body.classList.replace('light-theme', 'dark-theme');
+            document.querySelector('header').classList.replace('light-theme', 'dark-theme');
+            document.querySelector('aside').classList.replace('light-theme', 'dark-theme');
+            document.querySelectorAll('button').forEach(button => button.classList.replace('light-theme', 'dark-theme'));
+            localStorage.setItem('theme', 'dark');
+        } else {
+            document.body.classList.replace('dark-theme', 'light-theme');
+            document.querySelector('header').classList.replace('dark-theme', 'light-theme');
+            document.querySelector('aside').classList.replace('dark-theme', 'light-theme');
+            document.querySelectorAll('button').forEach(button => button.classList.replace('dark-theme', 'light-theme'));
+            localStorage.setItem('theme', 'light');
+        }
+    });
 });
