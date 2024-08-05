@@ -195,8 +195,11 @@ document.addEventListener('DOMContentLoaded', () => {
             const family = bird.family || 'unknown';
             const order = bird.order || 'unknown';
             const status = bird.status || 'unknown';
-            const length = bird.length || 'unknown';
-            const weight = bird.weight || 'unknown';
+            const lengthEntries = (bird.length || 'unknown').split(/[;,]/).map(entry => entry.trim());
+            const weightEntries = (bird.weight || 'unknown').split(/[;,]/).map(entry => entry.trim());
+
+            const formattedLength = lengthEntries.join('<br>');
+            const formattedWeight = weightEntries.join('<br>');
 
             card.innerHTML = `
                 <div class="bird-image-container">
@@ -217,10 +220,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         <strong class="label">${translations.status}: </strong><strong class="value">${status}</strong>
                     </div>
                     <div>
-                        <strong class="label">${translations.length}: </strong><strong class="value">${length}</strong>
+                        <strong class="label">${translations.length}: </strong><strong class="value">${formattedLength}</strong>
                     </div>
                     <div>
-                        <strong class="label">${translations.weight}: </strong><strong class="value">${weight}</strong>
+                        <strong class="label">${translations.weight}: </strong><strong class="value">${formattedWeight}</strong>
                     </div>
                 </div>
             `;
