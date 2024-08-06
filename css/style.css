@@ -71,13 +71,13 @@ input:checked + .slider:before {
 }
 
 /* Dark Theme Styles */
-body.dark-theme .switch-label {
+body .switch-label {
     color: #fff;
 }
 
 header.light-theme {
-    background-color: #fff;
-    color: #000;
+    background-color: #000000;
+    color: #ffffff;
 }
 
 header.dark-theme,
@@ -524,6 +524,12 @@ footer {
     .bird-info h2 {
         text-align: center;
         margin-top: 5px;
+    }
+
+    .status-circle {
+        width: 35px; 
+        height: 35px;
+        top: 88%;
     }
 
     .pagination {
