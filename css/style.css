@@ -556,6 +556,20 @@ footer {
         top: 88%;
     }
 
+    .original-name_on_image,
+    .credit-name_on_image {
+        position: absolute; 
+        bottom: 10%; 
+        left: 6%; 
+        margin: 0;
+        color: white;
+    }
+
+    .credit-name_on_image {
+        bottom: 5%; 
+        font-size: 14px; 
+    }
+
     .pagination {
         flex-direction: column;
         gap: 5px;
