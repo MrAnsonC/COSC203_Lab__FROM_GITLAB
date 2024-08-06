@@ -193,13 +193,15 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add(statusClass);
 
             const image = bird.photo ? bird.photo.source : 'data/images/unknown.jpg';
-            const common_name = bird.common_name || 'unknown';
-            const scientific_name = bird.scientific_name || 'unknown';
-            const family = bird.family || 'unknown';
-            const order = bird.order || 'unknown';
-            const status = bird.status || 'unknown';
-            const lengthEntries = (bird.length || 'unknown').split(/[;,]/).map(entry => entry.trim());
-            const weightEntries = (bird.weight || 'unknown').split(/[;,]/).map(entry => entry.trim());
+            const credit = bird.photo ? bird.photo.credit : 'Unknown';
+            const common_name = bird.common_name || 'Unknown';
+            const original_name = bird.original_name || 'Unknown';
+            const scientific_name = bird.scientific_name || 'Unknown';
+            const family = bird.family || 'Unknown';
+            const order = bird.order || 'Unknown';
+            const status = bird.status || 'Unknown';
+            const lengthEntries = (bird.length || 'Unknown').split(/[;,]/).map(entry => entry.trim());
+            const weightEntries = (bird.weight || 'Unknown').split(/[;,]/).map(entry => entry.trim());
 
             const formattedLength = lengthEntries.join('<br>');
             const formattedWeight = weightEntries.join('<br>');
@@ -207,6 +209,8 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="bird-image-container">
                     <img src="${image}" alt="${common_name}">
+                    <h1 class="original-name_on_image">${original_name}</h1>
+                    <h4 class="credit-name_on_image">${translations.credit}${credit}${translations.credit2}</h4>
                     <div class="status-circle"></div>
                 </div>
                 <div class="bird-info">

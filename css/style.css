@@ -87,6 +87,14 @@ main.dark-theme {
     color: #fff;
 }
 
+body.light-theme #aside-link {
+    color: blue;
+}
+
+body.dark-theme #aside-link {
+    color: pink;
+}
+
 body.light-theme {
     background-color: #fff;
     color: #000;
@@ -208,6 +216,22 @@ main {
     width: 350px;
     height: 230px;
     border-radius: 25px;
+}
+
+.original-name_on_image,
+.credit-name_on_image {
+  position: absolute; 
+  bottom: 7%; 
+  left: 6%; 
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); 
+  font-size: 25px; 
+}
+
+.credit-name_on_image {
+  bottom: 0px; 
+  font-size: 14px; 
 }
 
 .bird-info {
