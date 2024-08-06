@@ -1,5 +1,7 @@
 {
     "English": {
+        "light": "Light",
+        "dark": "Dark",
         "title": "Birds of Aotearoa",
         "close": "Close",
         "findBirds": "Find birds",
@@ -37,6 +39,8 @@
         "conservationStatus": "Conservation Status"
     },
     "MĀORI": {
+        "light": "Marama",
+        "dark": "Pouri",
         "title": "Ngā Manu o Aotearoa",
         "close": "Katia",
         "findBirds": "Rapua ngā manu",
@@ -74,6 +78,8 @@
         "conservationStatus": "Tiaki i te mana o mua"
     },
     "Simple_Chinese": {
+        "light": "浅色模式",
+        "dark": "深色模式",
         "title": "新西兰的鸟类",
         "close": "关闭",
         "findBirds": "寻找鸟类",
@@ -111,6 +117,8 @@
         "conservationStatus": "保护现状"
     },
     "Traditional_Chinese": {
+        "light": "淺色模式",
+        "dark": "深色模式",
         "title": "紐西蘭的鳥類",
         "close": "關閉",
         "findBirds": "尋找鳥類",

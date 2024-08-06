@@ -111,6 +111,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function applyTranslations(translations) {
+        document.getElementById('page-light').textContent = translations.light;
+        document.getElementById('page-dark').textContent = translations.dark;
+
         document.getElementById('page-title').textContent = translations.title;
         document.getElementById('closeBtn').textContent = translations.close;
         document.getElementById('main-title').textContent = translations.title;
@@ -204,30 +207,60 @@ document.addEventListener('DOMContentLoaded', () => {
             card.innerHTML = `
                 <div class="bird-image-container">
                     <img src="${image}" alt="${common_name}">
+                    <div class="status-circle"></div>
                 </div>
                 <div class="bird-info">
                     <h1>${common_name}</h1>
-                    <div>
-                        <strong class="label">${translations.scientificName}: </strong><strong class="value">${scientific_name}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.scientificName}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${scientific_name}</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong class="label">${translations.family}: </strong><strong class="value">${family}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.family}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${family}</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong class="label">${translations.order}: </strong><strong class="value">${order}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.order}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${order}</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong class="label">${translations.status}: </strong><strong class="value">${status}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.status}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${status}</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong class="label">${translations.length}: </strong><strong class="value">${formattedLength}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.length}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${formattedLength}</span>
+                        </div>
                     </div>
-                    <div>
-                        <strong class="label">${translations.weight}: </strong><strong class="value">${formattedWeight}</strong>
+                    <div class="info-row">
+                        <div class="info-column">
+                            <span class="label">${translations.weight}</span>
+                        </div>
+                        <div class="info-column">
+                            <span class="value">${formattedWeight}</span>
+                        </div>
                     </div>
                 </div>
             `;
-
             birdCardsContainer.appendChild(card);
         });
     }

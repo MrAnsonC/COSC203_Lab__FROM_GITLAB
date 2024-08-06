@@ -6,15 +6,15 @@ body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    transition: background-color 0.3s, color 0.3s; 
+    transition: background-color 0.3s, color 0.3s;
 }
 
 /* Switch Container */
 .theme-switcher {
-    margin-right: auto;
-    margin-left: 300px;
     display: flex;
     align-items: center;
+    margin-right: auto;
+    margin-left: 300px;
 }
 
 /* Switch Styles */
@@ -40,7 +40,7 @@ body {
     right: 0;
     bottom: 0;
     background-color: #ccc;
-    transition: .4s;
+    transition: 0.4s;
     border-radius: 34px;
 }
 
@@ -53,7 +53,7 @@ body {
     left: 4px;
     bottom: 4px;
     background-color: white;
-    transition: .4s;
+    transition: 0.4s;
 }
 
 input:checked + .slider {
@@ -80,23 +80,28 @@ header.light-theme {
     color: #000;
 }
 
-/* Dark Theme */
-header.dark-theme {
+header.dark-theme,
+aside.dark-theme,
+main.dark-theme {
     background-color: #3c3c3c;
     color: #fff;
 }
 
-aside.dark-theme {
+body.light-theme {
+    background-color: #fff;
+    color: #000;
+}
+
+body.dark-theme {
     background-color: #3c3c3c;
     color: #fff;
 }
 
+/* Header */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #3c3c3c;
-    color: #fff;
     padding: 10px 20px;
     position: relative;
 }
@@ -110,6 +115,7 @@ header h1 {
     text-align: right;
 }
 
+/* Aside */
 aside {
     position: fixed;
     top: 0;
@@ -123,7 +129,9 @@ aside {
     overflow-y: auto;
 }
 
-#filterResults, #resetFilters {
+/* Buttons */
+#filterResults,
+#resetFilters {
     background-color: #3c3c3c;
     color: #fff;
     border: none;
@@ -135,81 +143,19 @@ aside {
     transition: background-color 0.3s ease;
 }
 
-#filterResults.dark-theme, #resetFilters.dark-theme {
-    background-color: #008404;
-    color: #fff;
-} 
-
-#filterResults.dark-theme:hover, #resetFilters.dark-theme:hover {
-    background-color: #6a00c0;
-    color: #fff;
-} 
-
-
-#filterResults:hover, #resetFilters:hover {
+#filterResults:hover,
+#resetFilters:hover {
     background-color: #8c00ff;
 }
 
-.conservation-status h2 {
-    font-size: 18px;
-    font-weight: bold;
-    margin-bottom: 10px;
+#filterResults.dark-theme,
+#resetFilters.dark-theme {
+    background-color: #008404;
 }
 
-.conservation-status ul {
-    list-style: none;
-    padding: 0;
-}
-
-.conservation-status li {
-    margin-bottom: 5px;
-    line-height: 20px;
-}
-
-.status-indicator {
-    display: inline-block;
-    width: 20px;
-    height: 20px;
-    border-radius: 10px;
-    margin-right: 5px;
-    vertical-align: middle;
-}
-
-
-.close-btn {
-    font-size: 24px;
-    background: none;
-    border: none;
-    color: #333;
-    cursor: pointer;
-    position: absolute;
-    top: 20px;
-    right: 20px;
-}
-.form-group {
-    margin-bottom: 10px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 5px;
-}
-
-.form-group input,
-.form-group select {
-    width: 100%;
-    padding: 8px;
-    box-sizing: border-box;
-}
-
-aside .form-group.light-theme{
-    background-color: #f4f4f4;
-    color: #000;
-}
-
-aside .form-group.dark-theme {
-    background-color: #000000;
-    color: #f4f4f4;
+#filterResults.dark-theme:hover,
+#resetFilters.dark-theme:hover {
+    background-color: #6a00c0;
 }
 
 #closeBtn {
@@ -228,16 +174,7 @@ aside .form-group.dark-theme {
     background-color: #d40000;
 }
 
-body.light-theme {
-    background-color: #fff;
-    color: #000;
-}
-
-body.dark-theme {
-    background-color: #3c3c3c;
-    color: #fff;
-}
-
+/* Main Content */
 main {
     flex: 1;
     padding: 20px;
@@ -245,16 +182,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-main.light-theme {
-    background-color: #ffffff;
-    color: #000000;
-}
-
-main.dark-theme {
-    background-color: #000000;
-    color: #ffffff;
 }
 
 .bird-cards {
@@ -265,36 +192,117 @@ main.dark-theme {
     width: 100%;
 }
 
-.info-line {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: baseline;
-}
-
-.label {
-    flex: 0 0 150px;
-    text-align: left;
-}
-
-.value {
-    flex: 1;
-    text-align: left;
-}
-
+/* Bird Card */
 .bird-card {
     border: 10px solid transparent;
     border-radius: 35px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: grid;
-    align-items: flex;
     width: 100%;
-    max-width: 365px;
-    box-sizing: border-box;
+    max-width: 350px;
     transition: transform 0.3s ease;
     position: relative;
     overflow: hidden;
 }
 
+.bird-card img {
+    width: 350px;
+    height: 230px;
+    border-radius: 25px;
+}
+
+.bird-info {
+    text-align: center;
+    padding: 10px;
+}
+
+.bird-info h2 {
+    font-size: 1.3em;
+    margin: 0 0 10px;
+}
+
+.bird-info .info-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.bird-info .label {
+    font-weight: bold;
+    text-align: left;
+}
+
+.bird-info .value {
+    flex: 1;
+    text-align: left !important;
+}
+
+.bird-image-container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.status-circle {
+    position: absolute;
+    width: 47px; 
+    height: 47px;
+    border-radius: 50%;
+    background-color: transparent;
+    top: 90%;
+    left: 70%; 
+    z-index: 1;
+    border: 3px solid white;
+}
+
+* Conservation Status Colors */
+.status-not-threatened .status-circle{
+    background-color: #02a028;
+    /*Bug*/
+}
+
+.status-not-threatened .status-circle{
+    background-color: #02a028;
+}
+
+.status-naturally-uncommon .status-circle {
+    background-color: #649a31;
+}
+
+.status-relict .status-circle {
+    background-color: #99cb68;
+}
+
+.status-recovering .status-circle {
+    background-color: #fecc33;
+}
+
+.status-declining .status-circle {
+    background-color: #fe9a01;
+}
+
+.status-nationally-increasing .status-circle {
+    background-color: #c26967;
+}
+
+.status-nationally-vulnerable .status-circle {
+    background-color: #9b0000;
+}
+
+.status-nationally-endangered .status-circle {
+    background-color: #660032;
+}
+
+.status-nationally-critical .status-circle {
+    background-color: #320033;
+}
+
+.status-extinct .status-circle,
+.status-data-deficient .status-circle {
+    background-color: black;
+}
+
+/* Conservation Status Colors */
 .status-not-threatened {
     border-color: #02a028;
 }
@@ -331,10 +339,7 @@ main.dark-theme {
     border-color: #320033;
 }
 
-.status-extinct {
-    border-color: black;
-}
-
+.status-extinct,
 .status-data-deficient {
     border-color: black;
 }
@@ -351,55 +356,66 @@ main.dark-theme {
     transform: translateY(-5px);
 }
 
-.bird-card img {
-    width: 370px;
-    height: 250px;
-    border-radius: 25px;
-}
-
-.bird-info {
-    align-items: center;
-    text-align: center;
-}
-
-.bird-info h1 {
-    font-size: 1.3em;
-    margin: 0 10 10px;
-    margin-right: 20px;
-    text-align: center;
-}
-
-.bird-info div {
-    flex-direction: column;
+.info-row {
+    display: flex;
+    flex-wrap: wrap;
     align-items: baseline;
-    justify-content: space-between;
-    margin-bottom: 5px;
-    margin: 15px;
-    margin-bottom: 10px;
-    text-align: left;
 }
 
 .label {
-    min-width: 80px;
-    text-align: right;
-    padding-right: 10px;
+    flex: 0 0 150px;
+    text-align: left;
 }
 
 .value {
     flex: 1;
+    text-align: left;
 }
 
-.bird-info {
-    flex-direction: column;
-    justify-content: flex-start;
+/* Conservation Status */
+.conservation-status h2 {
+    font-size: 18px;
+    font-weight: bold;
+    margin-bottom: 10px;
 }
 
-.bird-info strong {
-    margin-right: 10px;
-    font-size: 0.9em;
+.conservation-status ul {
+    list-style: none;
+    padding: 0;
 }
 
+.conservation-status li {
+    margin-bottom: 5px;
+    line-height: 20px;
+}
 
+.status-indicator {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    margin-right: 5px;
+    vertical-align: middle;
+}
+
+/* Form Group */
+.form-group {
+    margin-bottom: 10px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 8px;
+    box-sizing: border-box;
+}
+
+/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -407,7 +423,8 @@ main.dark-theme {
     margin-top: 20px;
 }
 
-.pagination button, .pagination select {
+.pagination button,
+.pagination select {
     padding: 10px;
     border: none;
     border-radius: 5px;
@@ -417,10 +434,12 @@ main.dark-theme {
     transition: background-color 0.3s ease;
 }
 
-.pagination button:hover, .pagination select:hover {
+.pagination button:hover,
+.pagination select:hover {
     background-color: #8c00ff;
 }
 
+/* Footer */
 footer {
     text-align: center;
     background-color: #3c3c3c;
@@ -428,7 +447,6 @@ footer {
     padding: 10px;
     width: auto;
     margin-top: auto;
-    text-align: right;
 }
 
 /* Media Queries for Responsiveness */
@@ -453,7 +471,7 @@ footer {
 
     .theme-switcher {
         margin-right: auto;
-        margin-left: 0px;
+        margin-left: 0;
     }
 
     aside {
