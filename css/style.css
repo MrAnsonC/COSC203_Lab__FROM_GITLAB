@@ -151,6 +151,12 @@ aside {
     transition: background-color 0.3s ease;
 }
 
+#filterResults.light-theme,
+#resetFilters.light-theme {
+    background-color: #3c3c3c;
+    color: #fff;
+}
+
 #filterResults:hover,
 #resetFilters:hover {
     background-color: #8c00ff;
@@ -171,6 +177,7 @@ aside {
     background-color: #ff0000;
     color: #fff;
     border: none;
+    font-size: 150%;
     padding: 10px;
     cursor: pointer;
     margin-top: 5px;
@@ -437,6 +444,41 @@ main {
     width: 100%;
     padding: 8px;
     box-sizing: border-box;
+}
+
+/* Light theme styles */
+.light-theme .form-group {
+    background-color: #f5f5f5;
+    color: #333;
+}
+
+.light-theme .form-group input[type="text"] {
+    background-color: #fff;
+    color: #333;
+    border-color: #ccc;
+}
+
+.light-theme .form-group select {
+    background-color: #ffffff;
+    color: #333;
+}
+
+/* Dark theme styles */
+.dark-theme .form-group {
+    background-color: #3c3c3c;
+    color: #fff;
+}
+
+.dark-theme .form-group input[type="text"] {
+    background-color: #3c3c3c;
+    font-size: 1.5em;
+    color: #84ff00;
+    border-color: #ccc;
+}
+
+.dark-theme .form-group select {
+    background-color: #3c3c3c;
+    color: #f5f5f5;
 }
 
 /* Pagination */
