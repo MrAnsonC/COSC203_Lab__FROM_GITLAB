@@ -126,7 +126,7 @@ header h1 {
 /* Aside */
 aside {
     position: fixed;
-    top: 0;
+    bottom: 0px;
     left: 0;
     width: 280px;
     height: 100%;
@@ -136,6 +136,7 @@ aside {
     z-index: 1000;
     overflow-y: auto;
 }
+
 
 /* Buttons */
 #filterResults,
@@ -184,6 +185,7 @@ aside {
     border-radius: 100%;
     transition: background-color 0.3s ease;
 }
+
 
 #closeBtn:hover {
     background-color: #d40000;
