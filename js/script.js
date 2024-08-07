@@ -193,15 +193,15 @@ document.addEventListener('DOMContentLoaded', () => {
             card.classList.add(statusClass);
 
             const image = bird.photo ? bird.photo.source : 'data/images/unknown.jpg';
-            const credit = bird.photo ? bird.photo.credit : 'Unknown';
-            const common_name = bird.common_name || 'Unknown';
-            const original_name = bird.original_name || 'Unknown';
-            const scientific_name = bird.scientific_name || 'Unknown';
-            const family = bird.family || 'Unknown';
-            const order = bird.order || 'Unknown';
-            const status = bird.status || 'Unknown';
-            const lengthEntries = (bird.length || 'Unknown').split(/[;,]/).map(entry => entry.trim());
-            const weightEntries = (bird.weight || 'Unknown').split(/[;,]/).map(entry => entry.trim());
+            const credit = bird.photo ? bird.photo.credit : `${translations.unknown}`;
+            const common_name = bird.common_name || `${translations.unknown}`;
+            const original_name = bird.original_name || `${translations.unknown}`;
+            const scientific_name = bird.scientific_name || `${translations.unknown}`;
+            const family = bird.family || `${translations.unknown}`;
+            const order = bird.order || `${translations.unknown}`;
+            const status = bird.status || `${translations.unknown}`;
+            const lengthEntries = (bird.length || `${translations.unknown}`).split(/[;,]/).map(entry => entry.trim());
+            const weightEntries = (bird.weight || `${translations.unknown}`).split(/[;,]/).map(entry => entry.trim());
 
             const formattedLength = lengthEntries.join('<br>');
             const formattedWeight = weightEntries.join('<br>');

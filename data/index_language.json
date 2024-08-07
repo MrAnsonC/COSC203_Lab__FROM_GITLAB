@@ -38,7 +38,8 @@
         "status": "Status",
         "length": "Length",
         "weight": "Weight",
-        "conservationStatus": "Conservation Status"
+        "conservationStatus": "Conservation Status",
+        "unknown": "Unknown data..."
     },
     "MĀORI": {
         "light": "Marama",
@@ -79,7 +80,8 @@
         "status": "Tūnga",
         "length": "Roa",
         "weight": "Taumaha",
-        "conservationStatus": "Tiaki i te mana o mua"
+        "conservationStatus": "Tiaki i te mana o mua",
+        "unknown": "...Tē mōhiotia..."
     },
     "Simple_Chinese": {
         "light": "浅色模式",
@@ -120,7 +122,8 @@
         "status": "状态",
         "length": "长度",
         "weight": "高度",
-        "conservationStatus": "保护现状"
+        "conservationStatus": "保护现状",
+        "unknown": "未知数据..."
     },
     "Traditional_Chinese": {
         "light": "淺色模式",
@@ -161,6 +164,7 @@
         "status": "狀態",
         "length": "長度",
         "weight": "高度",
-        "conservationStatus": "保育現狀"
+        "conservationStatus": "保育現狀",
+        "unknown": "未知數據..."
     }
 }

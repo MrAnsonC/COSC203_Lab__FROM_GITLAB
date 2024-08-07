@@ -455,7 +455,13 @@ main {
 .light-theme .form-group input[type="text"] {
     background-color: #fff;
     color: #333;
+    font-size: 1.5em;
     border-color: #ccc;
+}
+
+.light-theme .form-group input[type="text"]::placeholder {
+    font-size: 0.8em;
+    color: #aaa; 
 }
 
 .light-theme .form-group select {
@@ -470,10 +476,14 @@ main {
 }
 
 .dark-theme .form-group input[type="text"] {
-    background-color: #3c3c3c;
+    background-color: #008404;
     font-size: 1.5em;
-    color: #84ff00;
-    border-color: #ccc;
+    color: #ffffff;
+}
+
+.dark-theme .form-group input[type="text"]::placeholder {
+    font-size: 0.8em;
+    color: #ffffff;
 }
 
 .dark-theme .form-group select {
