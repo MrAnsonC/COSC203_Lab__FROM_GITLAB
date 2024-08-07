@@ -105,7 +105,7 @@ document.addEventListener('DOMContentLoaded', () => {
             .then(data => {
                 translations = data[language];
                 applyTranslations(translations);
-                displaybirds(birds, currentPage); // Re-display birds with new translations
+                displaybirds(birds, currentPage); 
             })
             .catch(error => console.error('Error loading language file:', error));
     }
