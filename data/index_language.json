@@ -39,7 +39,7 @@
         "length": "Length",
         "weight": "Weight",
         "conservationStatus": "Conservation Status",
-        "unknown": "Unknown data..."
+        "unknown": "...Unknown data..."
     },
     "MĀORI": {
         "light": "Marama",
@@ -123,7 +123,7 @@
         "length": "长度",
         "weight": "高度",
         "conservationStatus": "保护现状",
-        "unknown": "未知数据..."
+        "unknown": "...未知数据..."
     },
     "Traditional_Chinese": {
         "light": "淺色模式",
@@ -165,6 +165,6 @@
         "length": "長度",
         "weight": "高度",
         "conservationStatus": "保育現狀",
-        "unknown": "未知數據..."
+        "unknown": "...未知數據..."
     }
 }
