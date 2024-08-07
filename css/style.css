@@ -9,7 +9,6 @@ body {
     transition: background-color 0.3s, color 0.3s;
 }
 
-/* Switch Container */
 .theme-switcher {
     display: flex;
     align-items: center;
@@ -17,7 +16,6 @@ body {
     margin-left: 300px;
 }
 
-/* Switch Styles */
 .switch {
     position: relative;
     display: inline-block;
@@ -70,17 +68,15 @@ input:checked + .slider:before {
     color: #000;
 }
 
-/* Dark Theme Styles */
 body .switch-label {
     color: #fff;
 }
 
-header.light-theme {
+header {
     background-color: #000000;
     color: #ffffff;
 }
 
-header.dark-theme,
 aside.dark-theme,
 main.dark-theme {
     background-color: #3c3c3c;
@@ -191,7 +187,7 @@ aside {
     background-color: #d40000;
 }
 
-/* Main Content */
+/* Main */
 main {
     flex: 1;
     padding: 20px;
@@ -288,7 +284,6 @@ main {
     border: 3px solid white;
 }
 
-* Conservation Status Colors */
 .status-not-threatened .status-circle{
     background-color: #02a028;
     /*Bug*/
@@ -335,7 +330,6 @@ main {
     background-color: black;
 }
 
-/* Conservation Status Colors */
 .status-not-threatened {
     border-color: #02a028;
 }
@@ -431,7 +425,6 @@ main {
     vertical-align: middle;
 }
 
-/* Form Group */
 .form-group {
     margin-bottom: 10px;
 }
@@ -448,7 +441,6 @@ main {
     box-sizing: border-box;
 }
 
-/* Light theme styles */
 .light-theme .form-group {
     background-color: #f5f5f5;
     color: #333;
@@ -471,7 +463,6 @@ main {
     color: #333;
 }
 
-/* Dark theme styles */
 .dark-theme .form-group {
     background-color: #3c3c3c;
     color: #fff;
@@ -493,7 +484,6 @@ main {
     color: #f5f5f5;
 }
 
-/* Pagination */
 .pagination {
     display: flex;
     justify-content: center;
@@ -519,12 +509,38 @@ main {
 
 /* Footer */
 footer {
-    text-align: center;
-    background-color: #3c3c3c;
-    color: #fff;
+    text-align: right;
     padding: 10px;
     width: auto;
     margin-top: auto;
+}
+
+.light-theme footer {
+    background-color: #7293ff; 
+    color: #000000; 
+}
+
+.light-theme #footer-link {
+    color: blue; 
+    text-decoration: none;
+}
+
+.light-theme #footer-link:hover {
+    color: #0056b3;
+}
+
+.dark-theme footer {
+    background-color: #000000;
+    color: #fff; 
+}
+
+.dark-theme #footer-link {
+    color: #ffa; 
+    text-decoration: none;
+}
+
+.dark-theme #footer-link:hover {
+    color: #ffda44; 
 }
 
 /* Media Queries for Responsiveness */
